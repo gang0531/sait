@@ -32,7 +32,7 @@
             <li><a href="">Join Us</a></li>
           </ul>
 
-          <button type="button" class="btn-search">
+          <button type="btn" class="btn-search">
             <img src="./images/ico-search.png" alt="" />
           </button>
         </nav>
@@ -54,9 +54,13 @@
         <div class="swiper visual-slider">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
+            <!-- if we need pagination -->
+
             <!-- Slides -->
             <div class="swiper-slide">
               <figure>
+                <!-- button.btn-prev.btn -->
+                <button class="btn-prev btn"></button>
                 <img
                   src="https://cdn.hankyung.com/photo/202006/01.23035588.1.jpg"
                   alt=""
@@ -84,8 +88,8 @@
           <div class="swiper-pagination"></div>
 
           <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <div class="swiper-btn-prev"></div>
+          <div class="swiper-btn-next"></div>
 
           <!-- If we need scrollbar -->
           <div class="swiper-scrollbar"></div>
@@ -246,21 +250,29 @@
     <!-- //e: footer -->
 
     <script>
-      const visualSlider = new Swiper(".swiper", {
+      const visualSlider = new Swiper(".visual-slider", {
+        loop: true, // 반복
+        autoplay: true,
+        speed: 1000, // 기본값은 300ms
+        // direction: "vertical", // horizontal
+        // effect: "coverflow", // slide, fade, flip(뒤집기), cube, coverflow,
+
+        // 캐러셀
+        // slidesPerView: 2, // 한 번애 보여줄 슬라이드 갯수
+        spaceBetween: 20, // 사이 간격(px)
+        centeredSlides: ture, // 첫번째 슬라이더를 가운데로
+
         // If we need pagination
         pagination: {
           el: ".swiper-pagination",
+          type: "fraction", // 숫자로 표시
+          clickable: true, // 클릭가능
         },
 
         // Navigation arrows
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
-        },
-
-        // And if we need scrollbar
-        scrollbar: {
-          el: ".swiper-scrollbar",
         },
       });
     </script>
